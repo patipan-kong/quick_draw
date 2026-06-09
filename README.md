@@ -59,3 +59,22 @@ http://localhost:3000
 - The app is intentionally supportive for children aged 4-8.
 - API errors are handled gracefully in the UI.
 - UI logic and API calls are separated into app.js and api-client.js.
+
+## Deploy On Vercel
+
+1. Push this project to GitHub.
+2. In Vercel, click New Project and import the repository.
+3. Framework Preset: Other.
+4. Build Command: leave empty.
+5. Output Directory: leave empty.
+6. Add environment variables in Vercel Project Settings:
+   - GEMINI_API_KEY
+   - GEMINI_MODEL (optional, default gemini-2.5-flash-lite)
+7. Deploy.
+
+After deploy:
+
+- Static frontend is served from the root files.
+- API routes are served by Vercel Functions:
+  - /api/guess
+  - /api/evaluate
