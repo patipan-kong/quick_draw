@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Draw Playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="background-shapes" aria-hidden="true">
+      <span class="shape shape-a"></span>
+      <span class="shape shape-b"></span>
+      <span class="shape shape-c"></span>
+    </div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Educational AI Demo</p>
+        <h1>Quick Draw Playground</h1>
+        <p class="subtitle">
+          Draw with your finger or mouse. AI will guess what it might be.
+        </p>
+      </header>
+
+      <section class="controls card" aria-label="Game controls">
+        <div class="mode-group" role="radiogroup" aria-label="Select game mode">
+          <button class="mode-btn active" data-mode="free" role="radio" aria-checked="true">
+            Free Draw
+          </button>
+          <button class="mode-btn" data-mode="challenge" role="radio" aria-checked="false">
+            Draw What AI Says
+          </button>
+          <button class="mode-btn" data-mode="score" role="radio" aria-checked="false">
+            Scoring Game
+          </button>
+        </div>
+
+        <div class="status-row">
+          <div class="target-wrap">
+            <p class="label">Prompt</p>
+            <p id="targetText" class="target-text">Draw anything you like.</p>
+          </div>
+          <div class="score-wrap" id="scoreWrap" hidden>
+            <p class="label">Points</p>
+            <p id="scoreText" class="score-text">0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="canvas-card card">
+        <div class="canvas-toolbar">
+          <button id="clearBtn" class="secondary-btn">Clear</button>
+          <button id="undoBtn" class="secondary-btn">Undo</button>
+          <button id="predictBtn" class="primary-btn">Ask AI</button>
+          <button id="newRoundBtn" class="accent-btn">New Round</button>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="drawCanvas" width="640" height="420" aria-label="Drawing canvas"></canvas>
+        </div>
+      </section>
+
+      <section class="results card" aria-live="polite">
+        <p id="encouragementText" class="encouragement">Great try. Let us see what AI thinks.</p>
+        <h2 id="resultTitle">I think this is...</h2>
+        <ol id="predictionList" class="prediction-list">
+          <li>Waiting for your drawing.</li>
+        </ol>
+        <p id="resultText" class="result-text"></p>
+      </section>
+
+      <footer class="footer-note">
+        AI guesses are not always right. That is how machine learning learns from many examples.
+      </footer>
+    </main>
+  </body>
+</html>
